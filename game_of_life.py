@@ -1,12 +1,5 @@
 from copy import deepcopy
 
-INPUT_EXAMPLE = [[0, 1, 0, 0, 0, 0],
-                 [0, 0, 1, 0, 0, 0],
-                 [1, 1, 1, 0, 0, 0],
-                 [0, 0, 0, 0, 0, 0],
-                 [0, 0, 0, 0, 0, 0],
-                 [0, 0, 0, 0, 0, 0]]
-
 
 def get_next_state(input_grid):
     count = 0
@@ -19,10 +12,10 @@ def get_next_state(input_grid):
             if cell == 0 and nb_alive_neighboors == 3:
                 result_grid[index_row][index_column] = 1
 
-            if cell == 1 and nb_alive_neighboors == 4:
+            if cell == 1 and nb_alive_neighboors >= 4:
                 result_grid[index_row][index_column] = 0
 
-            if cell == 1 and nb_alive_neighboors == 0:
+            if cell == 1 and nb_alive_neighboors <= 1:
                 result_grid[index_row][index_column] = 0
 
     return result_grid
